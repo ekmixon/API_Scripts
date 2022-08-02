@@ -2,6 +2,7 @@
 """
 Add hosts to an existing target
 """
+
 import requests
 from urllib.parse import urljoin
 
@@ -9,10 +10,7 @@ token = input("API Token: ")
 target_id = input("Target ID: ")
 host = 'api.example.com'
 
-headers = {
-    'Authorization': "JWT {}".format(token),
-    'Content-Type': "application/json",
-}
+headers = {'Authorization': f"JWT {token}", 'Content-Type': "application/json"}
 api_base_url = "https://api.probely.com"
 endpoint = urljoin(api_base_url, "targets/{target_id}/assets/")
 

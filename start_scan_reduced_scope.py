@@ -8,11 +8,12 @@ and under "Integrations" create one.
 Alternatively to perform actions as a regular user check the login workflow in
 the create_target script.
 """
+
 import requests
 from urllib.parse import urljoin
 
 token = input("API Token:")
-headers = {"Authorization": "JWT {}".format(token)}
+headers = {"Authorization": f"JWT {token}"}
 
 target_id = input("Target ID:")
 
@@ -21,7 +22,7 @@ scan_now_endpoint = urljoin(api_base_url, "targets/{target_id}/scan_now/")
 
 reduced_scopes = []
 i = 1
-while reduced_scope := input("Reduced scope #{} (leave empty to stop):".format(i)):
+while reduced_scope := input(f"Reduced scope #{i} (leave empty to stop):"):
     reduced_scopes.append(reduced_scope)
     i += 1
 

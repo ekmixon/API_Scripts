@@ -11,6 +11,7 @@ support@probely.com.
 
 This example is for python 3.5
 """
+
 import getpass
 from urllib.parse import urljoin
 
@@ -28,7 +29,7 @@ target_endpoint = urljoin(api_base_url, "/targets/")
 response = requests.post(
     auth_endpoint, json={"username": username, "password": password}
 )
-headers = {"Authorization": "JWT {}".format(response.json()["token"])}
+headers = {"Authorization": f'JWT {response.json()["token"]}'}
 
 # Create scanning agent
 response = requests.post(
@@ -50,14 +51,15 @@ target_id = response.json()["id"]
 
 # Unassign agent
 response = requests.patch(
-    "{}{}/".format(target_endpoint, target_id),
+    f"{target_endpoint}{target_id}/",
     headers=headers,
     json={"scanning_agent": {"id": None}},
 )
 
+
 # Reassign agent
 response = requests.patch(
-    "{}{}/".format(target_endpoint, target_id),
+    f"{target_endpoint}{target_id}/",
     headers=headers,
     json={"scanning_agent": {"id": agent_id}},
 )

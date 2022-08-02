@@ -10,11 +10,12 @@ Currently there are 3 different scan profiles:
           tries fewer payloads for SQL injection tests
 
 """
+
 import requests
 from urllib.parse import urljoin
 
 token = input("API Token:")
-headers = {'Authorization': "JWT {}".format(token)}
+headers = {'Authorization': f"JWT {token}"}
 
 target_id = input("Target ID:")
 

@@ -5,6 +5,7 @@ Output CVSS score and vector for all findings in a target
 
 This example is for python 3.5
 """
+
 import argparse
 
 import requests
@@ -21,7 +22,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     token = input("API Token:")
-    headers = {'Authorization': "JWT {}".format(token)}
+    headers = {'Authorization': f"JWT {token}"}
 
     # Findings
     response = requests.get(
@@ -35,6 +36,4 @@ if __name__ == '__main__':
     print('Id, CVSS Score, CVSS vector')
     for finding in findings:
         if finding['cvss_score']:
-            print("%s, %s, %s" % (finding['id'],
-                                  finding['cvss_score'],
-                                  finding['cvss_vector']))
+            print(f"{finding['id']}, {finding['cvss_score']}, {finding['cvss_vector']}")

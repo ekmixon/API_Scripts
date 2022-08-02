@@ -8,11 +8,12 @@ and under "Integrations" create one.
 Alternatively to perform actions as a regular user check the login workflow in
 the create_target script.
 """
+
 import requests
 from urllib.parse import urljoin
 
 token = input("API Token:")
-headers = {'Authorization': "JWT {}".format(token)}
+headers = {'Authorization': f"JWT {token}"}
 
 target_id = input("Target ID:")
 

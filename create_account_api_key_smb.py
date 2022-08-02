@@ -2,6 +2,7 @@
 """
 Create an API key for your account
 """
+
 import getpass
 import requests
 from urllib.parse import urljoin
@@ -18,10 +19,7 @@ response = requests.post(auth_endpoint,
                          data={'username': username, 'password': password})
 token = response.json()['token']
 
-headers = {
-    'Authorization': "JWT {}".format(token),
-    'Content-Type': "application/json",
-}
+headers = {'Authorization': f"JWT {token}", 'Content-Type': "application/json"}
 
 api_name = input("API key's name: ")
 

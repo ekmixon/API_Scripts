@@ -11,6 +11,7 @@ support@probely.com.
 
 This example is for python 3.5
 """
+
 import getpass
 from urllib.parse import urljoin
 
@@ -30,7 +31,7 @@ verification_endpoint = urljoin(api_base_url,
 response = requests.post(auth_endpoint,
                          data={'username': username, 'password': password})
 token = response.json()['token']
-headers = {'Authorization': "JWT {}".format(token)}
+headers = {'Authorization': f"JWT {token}"}
 
 # Create target
 response = requests.post(target_endpoint, headers=headers)

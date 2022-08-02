@@ -6,6 +6,7 @@ To set postman environment for existing API target
 with Postman collection schema type
 
 """
+
 import json
 from urllib.parse import urljoin
 
@@ -13,7 +14,7 @@ import requests
 
 
 token = input("API Token:")
-headers = {"Authorization": "JWT {}".format(token)}
+headers = {"Authorization": f"JWT {token}"}
 target_id = input("Target ID: ")
 postman_env_file = input("Postman collection file: ")
 

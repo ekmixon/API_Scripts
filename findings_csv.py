@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 
 
 token = input("API Token:")
-headers = {"Authorization": "JWT {}".format(token)}
+headers = {"Authorization": f"JWT {token}"}
 
 api_base_url = "https://api.probely.com"
 findings_endpoint = urljoin(

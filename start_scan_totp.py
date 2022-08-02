@@ -9,6 +9,7 @@ permissions to change the target settings (support@probely.com).
 
 This code is python 3 only.
 """
+
 import hashlib
 import math
 import time
@@ -22,7 +23,7 @@ probely_api_key = "CHANGE ME"
 probely_target_id = "CHANGE ME"
 
 probely_api_base_url = "https://api.probely.com"
-probely_api_headers = {'Authorization': "JWT {}".format(probely_api_key)}
+probely_api_headers = {'Authorization': f"JWT {probely_api_key}"}
 
 
 def login(username, password, totp_code):

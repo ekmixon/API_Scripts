@@ -5,6 +5,7 @@ Create an overview file of the target finding history
 
 This example is for python 3.5
 """
+
 import argparse
 import csv
 import getpass
@@ -38,7 +39,7 @@ if __name__ == '__main__':
                              data={'username': username, 'password': password})
     response.raise_for_status()
     token = response.json()['token']
-    headers = {'Authorization': "JWT {}".format(token)}
+    headers = {'Authorization': f"JWT {token}"}
 
     # Scans
     response = requests.get(
